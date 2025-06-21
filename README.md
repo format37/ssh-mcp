@@ -50,3 +50,31 @@ If using Linux, your config folder is:
 /home/username/.config/Claude/claude_desktop_config.json
 ```
 To enable this u need to enable it in claude desktop: File / Config / Developer / Edit config
+
+## SSH Daemon:
+Configure ssh daemon:
+```
+nano /etc/systemd/system/ssh-mcp.service
+```
+Paste (update ur username):
+```
+[Unit]
+Description=SSH MCP Server
+After=network.target
+
+[Service]
+User=alex
+WorkingDirectory=/home/alex/projects/ssh-mcp
+ExecStart=/bin/bash -c 'eval "$(/home/alex/anaconda3/bin/conda shell.bash hook)" && conda activate b>
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+```
+Start
+```
+sudo systemctl daemon-reload
+sudo systemctl enable ssh-mcp.service
+sudo systemctl start ssh-mcp.service
+```
