@@ -1,0 +1,12 @@
+{
+    "mcpServers": {
+      "ssh": {
+        "command": "npx",
+        "args": [
+          "mcp-remote",
+          "http://localhost:7777/sse"
+        ],
+        "disabled": false
+      }
+    }
+  }
