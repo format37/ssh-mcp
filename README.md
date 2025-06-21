@@ -43,3 +43,10 @@ Default SSH credentials:
 - Password: your-pass
 
 **Note**: Update these credentials in `server.py` for production use.
+
+## Claude-desktop config
+If using Linux, your config folder is:
+```
+/home/username/.config/Claude/claude_desktop_config.json
+```
+To enable this u need to enable it in claude desktop: File / Config / Developer / Edit config
