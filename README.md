@@ -58,14 +58,14 @@ nano /etc/systemd/system/ssh-mcp.service
 ```
 Paste (update ur username):
 ```
-[Unit]
-Description=SSH MCP Server
-After=network.target
-
-[Service]
-User=alex
+[Unit]                                                                                                                                                                                                                                                         
+Description=SSH MCP Server                                                                                                                                                                                                                                     
+After=network.target                                                                                                                                                                                                                                           
+                                                                                                                                                                                                                                                               
+[Service]                                                                                                                                                                                                                                                      
+User=alex                                                                                                                                                                                                                                                      
 WorkingDirectory=/home/alex/projects/ssh-mcp
-ExecStart=/bin/bash -c 'eval "$(/home/alex/anaconda3/bin/conda shell.bash hook)" && conda activate b>
+ExecStart=/bin/bash -c 'eval "$(/home/alex/anaconda3/bin/conda shell.bash hook)" && conda activate base && /home/alex/anaconda3/bin/uvicorn server:app --host 0.0.0.0 --port 7777'
 Restart=on-failure
 RestartSec=5s
 
